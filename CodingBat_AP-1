@@ -1,0 +1,164 @@
+CodingBat.com
+
+AP-1
+—————
+
+//scoresIncreasing
+public boolean scoresIncreasing(int[] scores) {
+  for (int i = 0; i < scores.length - 1; i++) {
+    if (scores[i + 1] < scores[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+—————
+
+//scores100
+public boolean scores100(int[] scores) {
+  for (int i = 0; i < scores.length - 1; i++) {
+    if (scores[i] == 100 && scores[i + 1] == 100) {
+      return true;
+    }
+  }
+  return false;
+}
+
+—————
+
+//scoresClump
+public boolean scoresClump(int[] scores) {
+  for (int i = 0; i < scores.length - 2; i++) {
+    if (scores[i + 1] - scores[i] <= 2 && scores[i + 2] - scores[i] <= 2) {
+      return true;
+    }
+  }
+  return false;
+}
+
+—————
+
+//scoresAverage
+public int scoresAverage(int[] scores) {
+  
+  int start = 0;
+  int end = scores.length;
+  int mid = scores.length / 2;
+  
+  int firstHalfAvg = average(scores, start, mid);
+  int secondHalfAvg = average(scores, mid, end);
+  
+  if (firstHalfAvg > secondHalfAvg) {
+    return firstHalfAvg;
+  }
+  else {
+    return secondHalfAvg;
+  }
+  
+}
+
+public int average(int[] scores, int start, int end) {
+  int sum = 0;
+  int avg = 0;
+  int arrayLength = end - start;
+  for (int i = start; i < end; i++) {
+    sum += scores[i];
+  }
+  avg = sum / arrayLength;
+  return avg;
+}
+
+—————
+
+//wordsCount
+public int wordsCount(String[] words, int len) {
+  
+  int count = 0;
+  
+  for (int i = 0; i < words.length; i++) {
+    int wordLength = words[i].length();
+    if (wordLength == len) {
+      count++;
+    }
+  }
+  return count;
+}
+
+—————
+
+//wordsFront
+public String[] wordsFront(String[] words, int n) {
+  String[] newArray = new String[n];
+  for (int i = 0; i <= n - 1; i++) {
+    newArray[i] = words[i];
+  }
+  return newArray;
+}
+
+—————
+
+//wordsWithoutList
+public List wordsWithoutList(String[] words, int len) {
+  ArrayList<String> newList = new ArrayList<String>();
+  
+  for (int i = 0; i < words.length; i++) {
+    if (words[i].length() != len) {
+      newList.add(words[i]);
+    }
+  }
+  return newList;
+}
+
+——————
+
+//hasOne
+public boolean hasOne(int n) {
+  while (n > 0) {
+    if (n % 10 == 1) {
+      return true;
+    }
+    else {
+      n = n / 10;
+    }
+  }
+  return false;
+}
+
+—————
+
+//dividesSelf
+public boolean dividesSelf(int n) {
+  int originalN = n;
+  while (n > 0) {
+    if (n % 10 == 0) {
+      return false;
+    }
+    else if (originalN % (n % 10) == 0) {
+      n = n / 10;
+    }
+    else {
+      return false;
+    }
+  }
+  return true;
+}
+
+—————
+
+//copyEvens
+public int[] copyEvens(int[] nums, int count) {
+  int[] newArray = new int[count];
+  int indexOfNums = 0;
+  
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 == 0) {
+      newArray[indexOfNums] = nums[i];
+      indexOfNums++;
+    }
+    if (indexOfNums == count) {
+      break;
+    }
+  }
+  return newArray;
+}
