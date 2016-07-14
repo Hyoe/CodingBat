@@ -162,3 +162,114 @@ public int[] copyEvens(int[] nums, int count) {
   }
   return newArray;
 }
+
+————
+
+//copyEndy
+public int[] copyEndy(int[] nums, int count) {
+  int[] newArray = new int[count];
+  int indexOfNums = 0;
+  
+  for (int i = 0; i < nums.length; i++) {
+    if (isEndy(nums[i])) {
+      newArray[indexOfNums] = nums[i];
+      indexOfNums++;
+    }
+    if (indexOfNums == count) {
+      break;
+    }
+  }
+  return newArray;
+}
+
+public boolean isEndy(int n) {
+  if ((n >= 0  && n <=10) || (n >= 90 && n <= 100)) {
+    return true;
+  }
+  return false;
+}
+
+————
+
+//matchUp
+public int matchUp(String[] a, String[] b) {
+  int count = 0;
+  
+  for (int i = 0; i < a.length; i++) {
+    if (!a[i].equals("") && !b[i].equals("") && a[i].charAt(0) == b[i].charAt(0)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+————
+
+//scoreUp
+public int scoreUp(String[] key, String[] answers) {
+  int score = 0;
+  
+  for (int i = 0; i < key.length; i++) {
+    if (key[i] == answers[i]) {
+      score += 4;
+    }
+    else if (answers[i] == "?") {
+      score += 0;
+    }
+    else {
+      score -= 1;
+    }
+  }
+  return score;
+}
+
+—————
+
+//wordsWithout
+public String[] wordsWithout(String[] words, String target) {
+  int count = 0;
+  int newArrayIndex = 0;
+  
+  for (int i = 0; i < words.length; i++) {
+    if (words[i].equals(target)) {
+      count++;
+    }
+  }
+  
+  String[] newArray = new String[words.length - count];
+  
+  for (int i = 0; i < words.length; i++) {
+    if (!words[i].equals(target)) {
+      newArray[newArrayIndex] = words[i];
+      newArrayIndex++;
+    }
+  }
+  return newArray;
+}
+
+—————
+
+//scoresSpecial
+public int scoresSpecial(int[] a, int[] b) {
+  int sum = 0;
+  sum = largestSpecialScore(a) + largestSpecialScore(b);
+  return sum;
+}
+
+public int largestSpecialScore(int[] newArray) {
+  int largest = 0;
+
+  for (int i = 0; i < newArray.length; i++) {
+    if (newArray[i] % 10 == 0 && newArray[i] > largest) {
+      largest = newArray[i];
+    }
+  }
+  return largest;
+}
+
+
+
+
+
+
+
