@@ -267,6 +267,147 @@ public int largestSpecialScore(int[] newArray) {
   return largest;
 }
 
+—————
+
+//sumHeights
+public int sumHeights(int[] heights, int start, int end) {
+  int sum = 0;
+  
+  for (int i = start; i < end; i++) {
+    sum += Math.abs(heights[i] - heights[i + 1]);
+  }
+  return sum;
+}
+
+—————
+
+//sumHeights2
+public int sumHeights2(int[] heights, int start, int end) {
+  int sum = 0;
+  
+  for (int i = start; i < end; i++) {
+    if (heights[i] < heights[i + 1]) {
+      sum += (2 * Math.abs(heights[i] - heights[i + 1]));
+    }
+    else {
+      sum += Math.abs(heights[i] - heights[i + 1]);
+    }
+  }
+  return sum;
+}
+
+—————
+
+//bigHeights
+public int bigHeights(int[] heights, int start, int end) {
+  int sum = 0;
+  
+  for (int i = start; i < end; i++) {
+    if ((Math.abs(heights[i] - heights[i + 1])) >= 5) {
+      sum++;
+    }
+  }
+  return sum;
+}
+
+—————
+
+//userCompare
+public int userCompare(String aName, int aId, String bName, int bId) {
+  if (aName.compareTo(bName) > 0) {
+    return 1;
+  }
+  else if (aName.equals(bName)) {
+    if (aId > bId) {
+      return 1;
+    }
+    else if (aId < bId) {
+      return -1;
+    }
+    else {
+      return 0;
+    }
+  }
+  return -1;
+}
+
+—————
+
+//mergeTwo
+public String[] mergeTwo(String[] a, String[] b, int n) {
+  String[] newArray = new String[n];
+  int indexOfNewArray = 0;
+  int indexOfArrayA = 0;
+  int indexOfArrayB = 0;
+  
+  while (indexOfNewArray < n) {
+    if (a[indexOfArrayA].compareTo(b[indexOfArrayB]) < 0) {
+      newArray[indexOfNewArray++] = a[indexOfArrayA++];
+    }
+    else if (a[indexOfArrayA].compareTo(b[indexOfArrayB]) > 0) {
+      newArray[indexOfNewArray++] = b[indexOfArrayB++];
+    }
+    else {
+      newArray[indexOfNewArray++] = b[indexOfArrayB++];
+      indexOfArrayA++;
+    }
+  }
+  return newArray;
+}
+
+—————
+
+//commonTwo
+public int commonTwo(String[] a, String[] b) {
+  int count = 0;
+  String updatedString = "";
+  
+  for (int i = 0; i < b.length; i++) {
+    for (int j = 0; j < a.length; j++) {
+      if (a[j].compareTo(b[i]) == 0 && !updatedString.contains(a[j])) {
+        updatedString += a[j];
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+—————————————————————————————————————
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
