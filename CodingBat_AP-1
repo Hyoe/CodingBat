@@ -373,7 +373,119 @@ public int commonTwo(String[] a, String[] b) {
   return count;
 }
 
-—————————————————————————————————————
+
+——————————————————————————
+
+
+String-2
+—————————
+
+//doubleChar
+public String doubleChar(String str) {
+  String newString = "";
+  
+  for (int i = 0; i < str.length(); i++) {
+    newString = newString + str.charAt(i) + str.charAt(i);
+  }
+  return newString;
+}
+
+—————
+
+//countHi
+public int countHi(String str) {
+  int count = 0;
+  
+  for (int i = 0; i < str.length() - 1; i++) {
+    if (str.charAt(i) == 'h' && str.charAt(i + 1) == 'i') {
+      count++;
+    }
+  }
+  return count;
+}
+
+—————
+
+//catDog
+public boolean catDog(String str) {
+  int countCat = 0;
+  int countDog = 0;
+  
+  for (int i = 0; i < str.length() - 2; i++) {
+    if (str.substring(i, i + 3).equals("cat")) {
+      countCat++;
+    }
+    if (str.substring(i, i + 3).equals("dog")) {
+      countDog++;
+    }
+  }
+  return countCat == countDog;
+}
+
+—————
+
+//countCode
+public int countCode(String str) {
+  int count = 0;
+  
+  for (int i = 0; i < str.length() - 3; i++) {
+    if (str.charAt(i) == 'c' && str.charAt(i + 1) == 'o' && str.charAt(i + 3) == 'e') {
+      count++;
+    }
+  }
+  return count;
+}
+
+—————
+
+//endOther
+public boolean endOther(String a, String b) {
+  String aLowerCase = a.toLowerCase();
+  String bLowerCase = b.toLowerCase();
+  
+  int aLength = a.length();
+  int bLength = b.length();
+  
+  if (aLength < bLength) {
+    String tempString = bLowerCase.substring(bLength - aLength, bLength);
+    if (tempString.equals(aLowerCase)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    String tempString = aLowerCase.substring(aLength - bLength, aLength);
+    if (tempString.equals(bLowerCase)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+—————
+
+//xyzThere
+public boolean xyzThere(String str) {
+  boolean result = false;
+  
+  if (str.length() >= 3 && str.substring(0, 3).equals("xyz")) {
+    result = true;
+  }
+      
+  for (int i = 0; i < str.length() - 3; i++) {
+    if (str.charAt(i) != '.' && str.substring(i + 1, i + 4).equals("xyz")) {
+      return true;
+    }
+  }
+  return result;
+}
+
+
+
 
 
 
