@@ -484,11 +484,48 @@ public boolean xyzThere(String str) {
   return result;
 }
 
+—————
 
+//bobThere
+public boolean bobThere(String str) {
+  boolean result = false;
+  
+  if (str.length() >= 3 && str.charAt(0) == 'b' && str.charAt(2) == 'b') {
+    result = true;
+  }
+  
+  for (int i = 0; i < str.length() - 2; i++) {
+    if (str.charAt(i) == 'b' && str.charAt(i + 2) == 'b') {
+      result = true;
+    }
+  }
+  return result;
+}
 
+—————
 
-
-
+//xyBalance
+public boolean xyBalance(String str) {
+  boolean xChar = false;
+  boolean yChar = false;
+  
+  for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == 'x' && yChar == true) {
+      xChar = true;
+      yChar = false;
+    }
+    else if (str.charAt(i) == 'x') {
+      xChar = true;
+    }
+    if (str.charAt(i) == 'y' && xChar == true) {
+      yChar = true;
+    }
+  }
+  if (xChar == false) {
+    yChar = true;
+  }
+  return yChar;
+}
 
 
 
