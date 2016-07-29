@@ -608,7 +608,34 @@ public boolean prefixAgain(String str, int n) {
   return result;
 }
 
+—————
 
+//xyzMiddle
+public boolean xyzMiddle(String str) {
+  String xyz = "xyz";
+  int strLength = str.length();
+  int middle = strLength / 2;
+  
+  if (strLength < 3) {
+    return false;
+  }
+  
+  if (strLength % 2 != 0) {
+    if (str.substring(middle - 1, middle + 2).equals("xyz")) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else if (str.substring(middle - 1, middle + 2).equals("xyz") ||
+    str.substring(middle - 2, middle + 1).equals("xyz")) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 
 
