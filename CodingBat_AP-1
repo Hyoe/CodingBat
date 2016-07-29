@@ -527,6 +527,30 @@ public boolean xyBalance(String str) {
   return yChar;
 }
 
+—————
+
+//mixString
+public String mixString(String a, String b) {
+  String newString = "";
+  int maxLength = 0;
+  
+  if (a.length() > b.length()) {
+    maxLength = a.length();
+  }
+  else {
+    maxLength = b.length();
+  }
+  
+  for (int i = 0; i < maxLength; i++) {
+    if (i <= a.length() - 1) {
+      newString += a.substring(i, i + 1);
+    }
+    if (i <= b.length() - 1) {
+      newString += b.substring(i, i + 1);
+    }
+  }
+  return newString;
+}
 
 
 
