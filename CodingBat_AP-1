@@ -593,6 +593,22 @@ public String repeatSeparator(String word, String sep, int count) {
   return newString;
 }
 
+—————
+
+//prefixAgain
+public boolean prefixAgain(String str, int n) {
+  boolean result = false;
+  String prefixString = str.substring(0, n);
+  
+  for (int i = n; i <= str.length() - prefixString.length(); i++) {
+    if (prefixString.equals(str.substring(i, i + prefixString.length()))) {
+      result = true;
+    }
+  }
+  return result;
+}
+
+
 
 
 
