@@ -685,6 +685,20 @@ public boolean sameStarChar(String str) {
   return result;
 }
 
+//oneTwo
+public String oneTwo(String str) {
+  String newString = "";
+  
+  for (int i = 0; i < str.length() - 2; i++) {
+    if (str.length() > 2 && i == 0 || i % 3 == 0) {
+      newString += str.substring(i + 1, i + 3) + str.substring(i, i + 1);
+    }
+  }
+  return newString;
+}
+
+
+
 
 
 
