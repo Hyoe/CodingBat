@@ -612,7 +612,6 @@ public boolean prefixAgain(String str, int n) {
 
 //xyzMiddle
 public boolean xyzMiddle(String str) {
-  String xyz = "xyz";
   int strLength = str.length();
   int middle = strLength / 2;
   
@@ -636,6 +635,56 @@ public boolean xyzMiddle(String str) {
     return false;
   }
 }
+
+—————
+
+//getSandwich
+public String getSandwich(String str) {
+  String newString = "";
+  String tempString = "";
+  
+  int beginOfMiddleString = 0;
+  int endOfMiddleString = 0;
+  
+  boolean middleString = false;
+  
+  if (str.length() <= 10) {
+      return newString;
+  }
+  
+  for (int i = 0; i < str.length() - 4; i++) {
+    tempString = str.substring(i, i + 5);
+    
+    if (tempString.equals("bread") && middleString == false) {
+      beginOfMiddleString = i + 5;
+      middleString = true;
+    }
+    
+    if (tempString.equals("bread") && middleString == true) {
+      endOfMiddleString = i;
+    }
+    
+  }
+  newString = str.substring(beginOfMiddleString, endOfMiddleString);
+  return newString;
+}
+
+—————
+
+//sameStarChar
+public boolean sameStarChar(String str) {
+  boolean result = true;
+  
+  for (int i = 1; i < str.length() - 1; i++) {
+    if (str.charAt(i) == '*') {
+      if  (str.charAt(i - 1) != str.charAt(i + 1)) {
+        result = false;
+      }
+    }
+  }
+  return result;
+}
+
 
 
 
