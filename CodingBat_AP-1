@@ -697,7 +697,82 @@ public String oneTwo(String str) {
   return newString;
 }
 
+—————
 
+//zipZap
+public String zipZap(String str) {
+  String newString = str;
+  
+  for (int i = 0; i < newString.length() - 2; i++) {
+    if (newString.charAt(i) == 'z' && newString.charAt(i + 2) == 'p') {
+      newString = newString.substring(0, i + 1) + newString.substring(i + 2); 
+    }
+  }
+  return newString;
+}
+
+—————
+
+//starOut
+public String starOut(String str) {
+  String newString = "";
+  
+  for (int i = 0; i < str.length(); i++) {
+    if (i == 0 && str.charAt(i) != '*') {
+      newString += str.charAt(i);
+    }
+    if (i > 0 && str.charAt(i) != '*' && str.charAt(i - 1) != '*') {
+      newString += str.charAt(i);
+    }
+    if (i > 0 && str.charAt(i) == '*' && str.charAt(i - 1) != '*') {
+      newString = newString.substring(0, newString.length() - 1);
+    }
+  }
+  return newString;
+}
+
+—————
+
+//plusOut
+public String plusOut(String str, String word) {
+  String newString = "";
+  int wordLength = word.length();
+
+  for (int i = 0; i < str.length(); i++) {
+    if (i <= str.length() - wordLength) {
+      if (str.substring(i, i + wordLength).equals(word)) {
+        newString += word;
+        i += wordLength - 1;
+      }
+      else {
+        newString += "+";
+      }
+    }
+    else {
+      newString += "+";
+    }
+  }
+  return newString;
+}
+
+—————
+
+//wordEnds
+public String wordEnds(String str, String word) {
+  String newString = "";
+  String tempString = "";
+  
+  for (int i = 0; i < str.length() - word.length() + 1; i++) {
+    tempString = str.substring(i, i + word.length());
+    if (i > 0 && tempString.equals(word)) {
+      newString += str.substring(i - 1, i);
+    }
+    if (i < str.length() - word.length() && tempString.equals(word)) {
+      newString += str.substring(i + word.length(), i + word.length() + 1);
+    }
+  }
+  return newString;
+}
 
 
 
